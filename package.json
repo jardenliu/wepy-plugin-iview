@@ -27,5 +27,8 @@
   "bugs": {
     "url": "https://github.com/jardenliu/wepy-plugin-iview/issues"
   },
-  "homepage": "https://github.com/jardenliu/wepy-plugin-iview#readme"
+  "homepage": "https://github.com/jardenliu/wepy-plugin-iview#readme",
+  "dependencies": {
+    "wepy-iview": "^1.0.0"
+  }
 }

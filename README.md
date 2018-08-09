@@ -25,6 +25,11 @@
 ```
 4. 运行项目，即可使用如`<i-button></i-button>`的iView的全部组件啦
 
+5. `$toast`、`$Message`的引入
+```javascript
+    import {$Toast, $Message} from 'wepy-iview'
+```
+
 ## 全局注入配置
 
 默认是在`pages`目录下的所有页面的`usingComponents`中，自动注入全部iview的组件。
