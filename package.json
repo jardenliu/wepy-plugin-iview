@@ -1,6 +1,6 @@
 {
   "name": "wepy-plugin-iview",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A wepy plugin for weapp-iview",
   "main": "src/index.js",
   "scripts": {

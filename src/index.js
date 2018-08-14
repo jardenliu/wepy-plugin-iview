@@ -5,7 +5,7 @@ const {
     readdirSync,
     writeFileSync
 } = require('fs')
-const { join } = require('path')
+const { join, resolve, relative, dirname } = require('path')
 var copydir = require('copy-dir')
 
 const COPY_SOURCE = 'dist'
@@ -25,7 +25,7 @@ function WepyPluginIView(setting = {}) {
 
     // 拷贝iview到src下
     copyIViewToSrc()
-    //添加ignore
+    // 添加ignore
     addCopyFolderToGitIgnore()
     this.setting = setting
 
@@ -63,7 +63,7 @@ function getFilter(pagePath = 'pages') {
     let pagePaths = typeof pagePath === 'string' ? [pagePath] : pagePath
     let regs = []
     pagePaths.forEach(path => {
-        regs.push(path + '\/.*json$')
+        regs.push(path + '\/.*json$')  // eslint-disable-line
     })
     return new RegExp(regs.join('|'))
 }
@@ -103,8 +103,9 @@ WepyPluginIView.prototype.apply = function (op) {
         let globalConfig = Object.assign({}, DEFAULT_CONFIG, setting.config)
         let pageConfig = JSON.parse(op.code)
         let injectComponents = getInjectComponents(globalConfig, pageConfig)
+        let relativePath = relative(dirname(op.file), resolve('dist/'))
         pageConfig.usingComponents = pageConfig.usingComponents || {}
-        injectComponents.forEach(component => (pageConfig.usingComponents[globalConfig.prefix + component] = '../' + COPY_NAME + '/' + component + '/index'))
+        injectComponents.forEach(component => (pageConfig.usingComponents[globalConfig.prefix + component] = relativePath + '/' + COPY_NAME + '/' + component + '/index'))
         op.code = JSON.stringify(pageConfig)
         // op.output && op.output({
         //   action: '注入iView组件',
