@@ -8,7 +8,7 @@ module.exports = {
     // externals: [nodeExternals()],
     output: {
         path: path.resolve(__dirname, 'dist'),
-        libraryTarget: 'umd',
+        libraryTarget: 'commonjs',
         filename: 'index.js'
     },
     module: {
