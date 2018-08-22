@@ -1,4 +1,4 @@
-const getFilter = (pagePath) => {
+const getPageConfigFilter = (pagePath) => {
     let pagePaths = typeof pagePath === 'string' ? [pagePath] : pagePath
     let regs = []
     pagePaths.forEach(path => {
@@ -8,9 +8,9 @@ const getFilter = (pagePath) => {
 }
 
 export {
-    getFilter
+    getPageConfigFilter
 }
 
 export default {
-    getFilter
+    getPageConfigFilter
 }
