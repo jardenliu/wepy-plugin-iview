@@ -17,7 +17,6 @@ export default class WepyPluginIView {
         copyIView(); // 拷贝iview到src下
         c = merge(c, { isPx2On: c.config && c.config.px2 })
         this.setting = merge(DEFAULT_CONFIG, c);
-        console.log('this.setting', this.setting)
     }
     apply(op) {
         let setting = this.setting;
