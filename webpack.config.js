@@ -4,8 +4,11 @@ const webpack = require('webpack');
 
 module.exports = {
     target: 'node',
-    entry: path.resolve(__dirname, 'src', 'index.js'),
-    // externals: [nodeExternals()],
+    entry: ['babel-polyfill', path.resolve(__dirname, 'src', 'index.js')],
+    externals: {
+        'postcss': 'postcss',
+        'postcss-px2units': 'postcss-px2units'
+    },
     output: {
         path: path.resolve(__dirname, 'dist'),
         libraryTarget: 'commonjs',

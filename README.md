@@ -4,15 +4,16 @@
 ## 特性
 * 自动注入
 * 简易配置
+* px转换(rpx, rem, em, px)
 
 ## 用法
 1. 安装`iview-app`
 ```bash
-  npm i https://github.com/TalkingData/iview-weapp.git -S
+  $ npm i iview-weapp -S
 ```
 2. 安装`wepy-plugin-iview`
 ```bash
-  npm i wepy-plugin-iview
+  $ npm i wepy-plugin-iview
 ```
 3. 在`wepy.config.js`中`plugins`项中添加 `iview:{}`
 ```javascript
@@ -23,7 +24,7 @@
     // ...
   }
 ```
-4. 运行项目，即可使用如`<i-button></i-button>`的iView的全部组件啦
+4. 运行项目，即可使用iView的全部组件啦~~   如:`<i-button></i-button>`
 
 5. `$toast`、`$Message`的引入
 ```javascript
@@ -43,15 +44,27 @@
          
       config: {
         inject: true,
-        // 可选，默认为 true,注入iView的全部组件。 如果不想全部, 通过此值设置。
+        // 可选，默认为 true, 注入iView的全部组件。 如果不想全部, 通过此值设置。
         // 参考配置：
         // inject: false                           不注入任何组件 
         // inject:['button','icon',...]            只注入部分组件
                 
         prefix: 'i-',
-        // 可选，默认为 'i-',组件名前缀。 如果使用其他组件名前缀, 通过此值设置。
+        // 可选，默认为 'i-', 组件名前缀。 如果使用其他组件名前缀, 通过此值设置。
         // 参考配置：
         // prefix: 'a-'                            button的组件名为'a-button'
+
+        px2: false  
+        // 可选，默认为false, 开启px单位转换。 可选值 true, false, config object {...}
+       // 参考配置：
+       // px2: true
+       // px2: {}
+
+      //  px2: {
+      //       relative: 400,          // 相对值,rpx是 相对于750宽度 ；  rem，em 是相对的 font-size
+      //       decimalPlaces: 2,       //  保留的小数位数
+      //       targetUnits: 'rpx'      // 目标转换的单位 支持 rpx rem em px
+      //   }
       }
     }
 ```

@@ -10,8 +10,13 @@ export const DEFAULT_CONFIG = {
     pagePath: 'pages',
     config: {
         inject: true,
-        prefix: 'i-'
+        prefix: 'i-',
+        px2: {
+            relative: 400,
+            decimalPlaces: 2,
+            comment: 'no',
+            targetUnits: 'rpx'
+        }
     }
 }
-
 

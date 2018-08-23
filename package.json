@@ -1,10 +1,10 @@
 {
   "name": "wepy-plugin-iview",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "description": "A wepy plugin for weapp-iview",
   "main": "dist/index.js",
   "scripts": {
-    "dev": "webpack --mode=development",
+    "dev": "webpack --mode=development --watch",
     "build": "webpack --mode=production",
     "test": "mocha"
   },
@@ -31,17 +31,19 @@
   },
   "homepage": "https://github.com/jardenliu/wepy-plugin-iview#readme",
   "dependencies": {
+    "postcss-px2units": "^0.1.1",
     "wepy-iview": "^1.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
-    "babel-preset-env": "^1.7.0",
+    "babel-polyfill": "^6.26.0",
+    "iview-weapp": "^2.0.0",
     "copy-dir": "^0.4.0",
     "deepmerge": "^2.1.1",
+    "babel-preset-env": "^1.7.0",
     "eslint": "^5.3.0",
-    "postcss-px2units": "^0.1.1",
     "webpack": "^4.16.5",
     "webpack-cli": "^3.1.0",
     "webpack-node-externals": "^1.7.2"

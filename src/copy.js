@@ -7,7 +7,7 @@ import { join } from 'path';
 import copydir from 'copy-dir';
 
 const IVIEW_PATH = eval("require.resolve('iview-weapp/package.json').replace(/package.json$/, '')");
-const IVIEW_VERISON = eval("require('iview-weapp/package.json')").verison;
+const IVIEW_VERISON = eval("require('iview-weapp/package.json').version");
 
 import {
     IVIEW_SOURCE_DIR,

@@ -2,7 +2,7 @@
 import merge from 'deepmerge';
 import copyIView from './copy';
 import injectComponents from './inject';
-import px2rpx from './px2rpx';
+import px2 from './px2';
 import { DEFAULT_CONFIG } from './config';
 
 // check iView is installed or not
@@ -15,12 +15,20 @@ try {
 export default class WepyPluginIView {
     constructor(c = {}) {
         copyIView(); // 拷贝iview到src下
+        c = merge(c, { isPx2On: c.config && c.config.px2 })
         this.setting = merge(DEFAULT_CONFIG, c);
+        console.log('this.setting', this.setting)
     }
     apply(op) {
         let setting = this.setting;
-        op = px2rpx(op, setting);
-        op = injectComponents(op, setting);
-        op.next();
+        const asyncApply = async () => {
+            if (setting.isPx2On) {
+                op = await px2(op, setting);
+            }
+            op = injectComponents(op, setting);
+        }
+        asyncApply().then(() => {
+            op.next();
+        })
     }
 }
