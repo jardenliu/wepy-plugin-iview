@@ -61,8 +61,8 @@
        // px2: {}
 
       //  px2: {
-      //       relative: 400,          // 相对值,rpx是 相对于750宽度 ；  rem，em 是相对的 font-size
-      //       decimalPlaces: 2,       //  保留的小数位数
+      //       relative: 400,          // 相对值,rpx是 相对于750宽度 ；  rem，em 是相对的 font-size
+      //       decimalPlaces: 2,       //  保留的小数位数
       //       targetUnits: 'rpx'      // 目标转换的单位 支持 rpx rem em px
       //   }
       }
